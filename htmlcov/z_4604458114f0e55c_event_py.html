@@ -64,10 +64,10 @@
         <p class="text">
             <a id="prevFileLink" class="nav" href="z_4604458114f0e55c_domains_py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a id="nextFileLink" class="nav" href="z_a853670e9549b24c_choices_py.html">&#xbb; next</a>
+            <a id="nextFileLink" class="nav" href="z_a853670e9549b24c_fields_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.1">coverage.py v7.13.1</a>,
-            created at 2026-01-24 18:45 +0000
+            created at 2026-02-16 10:46 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -177,12 +177,12 @@
     <p class="run"><span class="n"><a id="t93" href="#t93">93</a></span><span class="t">                    <span class="nam">request</span><span class="op">.</span><span class="nam">event</span> <span class="op">=</span> <span class="nam">get_object_or_404</span><span class="op">(</span><span class="nam">queryset</span><span class="op">,</span> <span class="nam">slug__iexact</span><span class="op">=</span><span class="nam">event_slug</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t94" href="#t94">94</a></span><span class="t">                <span class="key">except</span> <span class="nam">ValueError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t95" href="#t95">95</a></span><span class="t">                    <span class="com"># Happens mostly on malformed or malicious input</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t96" href="#t96">96</a></span><span class="t">                    <span class="key">raise</span> <span class="nam">Http404</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t96" href="#t96">96</a></span><span class="t">                    <span class="key">raise</span> <span class="nam">Http404</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t97" href="#t97">97</a></span><span class="t">        <span class="nam">event</span> <span class="op">=</span> <span class="nam">getattr</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"event"</span><span class="op">,</span> <span class="key">None</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t98" href="#t98">98</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t99" href="#t99">99</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_select_locale</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t100" href="#t100">100</a></span><span class="t">        <span class="nam">is_exempt</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run run2"><span class="n"><a id="t101" href="#t101">101</a></span><span class="t">            <span class="nam">url</span><span class="op">.</span><span class="nam">url_name</span> <span class="key">in</span> <span class="op">(</span><span class="str">"export"</span><span class="op">,</span> <span class="str">"event.css"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t101" href="#t101">101</a></span><span class="t">            <span class="nam">url</span><span class="op">.</span><span class="nam">url_name</span> <span class="key">in</span> <span class="op">(</span><span class="str">"export"</span><span class="op">,</span> <span class="str">"event.css"</span><span class="op">,</span> <span class="str">"widget.messages"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t102" href="#t102">102</a></span><span class="t">            <span class="key">if</span> <span class="str">"agenda"</span> <span class="key">in</span> <span class="nam">url</span><span class="op">.</span><span class="nam">namespaces</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t103" href="#t103">103</a></span><span class="t">            <span class="key">else</span> <span class="nam">request</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">startswith</span><span class="op">(</span><span class="str">"/api/"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t104" href="#t104">104</a></span><span class="t">        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -250,9 +250,9 @@
     <p class="mis show_mis"><span class="n"><a id="t166" href="#t166">166</a></span><span class="t">            <span class="key">if</span> <span class="key">not</span> <span class="nam">language_code_re</span><span class="op">.</span><span class="nam">search</span><span class="op">(</span><span class="nam">accept_lang</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t167" href="#t167">167</a></span><span class="t">                <span class="key">continue</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t168" href="#t168">168</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t169" href="#t169">169</a></span><span class="t">            <span class="nam">accept_lang</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_validate_language</span><span class="op">(</span><span class="nam">accept_lang</span><span class="op">,</span> <span class="nam">supported</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t170" href="#t170">170</a></span><span class="t">            <span class="key">if</span> <span class="nam">accept_lang</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t171" href="#t171">171</a></span><span class="t">                <span class="key">return</span> <span class="nam">accept_lang</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t169" href="#t169">169</a></span><span class="t">            <span class="nam">validated</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_validate_language</span><span class="op">(</span><span class="nam">accept_lang</span><span class="op">,</span> <span class="nam">supported</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t170" href="#t170">170</a></span><span class="t">            <span class="key">if</span> <span class="nam">validated</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t171" href="#t171">171</a></span><span class="t">                <span class="key">return</span> <span class="nam">validated</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t172" href="#t172">172</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t173" href="#t173">173</a></span><span class="t">    <span class="key">def</span> <span class="nam">_language_from_cookie</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">request</span><span class="op">,</span> <span class="nam">supported</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t174" href="#t174">174</a></span><span class="t">        <span class="nam">cookie_value</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">COOKIES</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="nam">settings</span><span class="op">.</span><span class="nam">LANGUAGE_COOKIE_NAME</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -286,10 +286,10 @@
         <p>
             <a class="nav" href="z_4604458114f0e55c_domains_py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a class="nav" href="z_a853670e9549b24c_choices_py.html">&#xbb; next</a>
+            <a class="nav" href="z_a853670e9549b24c_fields_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.1">coverage.py v7.13.1</a>,
-            created at 2026-01-24 18:45 +0000
+            created at 2026-02-16 10:46 +0000
         </p>
     </div>
 </footer>
